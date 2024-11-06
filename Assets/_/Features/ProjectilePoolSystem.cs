@@ -37,7 +37,9 @@ public class ProjectilePoolSystem : MonoBehaviour
                 return child.gameObject;
             }
         }
-        return AddItemInPool();
+        var instance = Instantiate(_projectilePrefab, transform);
+        instance.SetActive(true);
+        return instance;
     }
 
 }

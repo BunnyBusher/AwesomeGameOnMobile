@@ -12,9 +12,15 @@ public class PlayerShootSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            var projectile = _projectilePoolSystem.GetFisrtProjectile();
-            
-            
+            FireAProjectile();
+
         }
+    }
+
+    [ContextMenu("Fire projectile")]
+    private void FireAProjectile()
+    {
+        var projectile = _projectilePoolSystem.GetFisrtProjectile();
+        projectile.transform.position = transform.position;
     }
 }
