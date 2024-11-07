@@ -30,10 +30,10 @@ public class ProjectilePhysics : MonoBehaviour
     {
         if (trigger.gameObject.CompareTag("Enemy"))
         {
-
-            
+                       
             OnCollisionWithEnemy?.Invoke(trigger.gameObject);
-            Debug.Log("Enemy hit");
+            transform.gameObject.SetActive(false);
+
         }
     }
     private void Update()

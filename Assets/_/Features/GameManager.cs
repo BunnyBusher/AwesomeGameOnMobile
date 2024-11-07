@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private ProjectilePhysics _projectilePhysics;
+
+    private void OnEnable()
     {
-        
+        _projectilePhysics.OnCollisionWithEnemy.AddListener(EnemyIsHit);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        _projectilePhysics.OnCollisionWithEnemy.RemoveListener(EnemyIsHit);
+    }
+
+    private void EnemyIsHit(GameObject hit)
+    {
+        Debug.Log($"{hit}Enemy hit");
+
+        hit.gameObject.SetActive(false);
     }
 }
